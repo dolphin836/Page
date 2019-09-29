@@ -7,42 +7,89 @@ class TimestampTransform extends React.Component {
     super(props);
 
     this.state = {
-      datetime: this.getNowDatatTme(),
-      timestamp: this.getNowTimestamp(),
+      nowDateTime: this.getNowDatatTme(),
+      nowTimeStamp: this.getNowTimestamp(),
       isRunning: true,
-      switchName: '暂 停'
+      switchName: '暂 停',
+      dateTime: '',
+      timeStamp: ''
     };
   }
-  // 页面加载后执行
+  // 页面加载完成，创建时钟
   componentDidMount() {
     this.clock = setInterval(
-      () => this.tick(),
+      () => this.running(),
       1000
     );
   }
-  // 
+  // 注销页面，清除时钟
   componentWillUnmount() {
     clearInterval(this.clock);
   }
-  // 时钟
-  tick() {
-    if (this.state.isRunning) {
+  // 切换时钟运行状态
+  switchTimeState = () => {
+    this.setState({
+      isRunning: ! this.state.isRunning,
+      switchName: this.state.isRunning ? '开 启' : '暂 停'
+    });
+  }
+  // 时间字符串与 Unix 时间戳互转
+  transform = () => {
+    if (this.state.dateTime.length > 0) {
       this.setState({
-        datetime: this.getNowDatatTme(),
-        timestamp: this.getNowTimestamp()
+        timeStamp: this.stringToInt(this.state.dateTime)
+      });
+    }
+
+    if (this.state.timeStamp.length > 0) {
+      this.setState({
+        dateTime: this.intToString(this.state.timeStamp)
       });
     }
   }
-  // 得到当前时间
+  // 清空
+  clean = () => {
+    this.setState({
+      dateTime: '',
+      timeStamp: ''
+    });
+  }
+  // 时间字符串改变
+  dateTimeChange = (e) => {
+    this.setState({
+      dateTime: e.target.value
+    });
+  }
+  // Unix 时间戳改变
+  timeStampChange = (e) => {
+    this.setState({
+      timeStamp: e.target.value
+    });
+  }
+  // 时钟
+  running() {
+    if (this.state.isRunning) {
+      this.setState({
+        nowDateTime: this.getNowDatatTme(),
+        nowTimeStamp: this.getNowTimestamp()
+      });
+    }
+  }
+  // 得到当前日期时间字符串
   getNowDatatTme() {
-    let now       = new Date();
-    let month     = now.getMonth() + 1;
+    let dateTime = new Date();
 
-    return now.getFullYear() + '-' + this.zfill(month) + '-' + this.zfill(now.getDate()) + ' ' + this.zfill(now.getHours()) + ':' + this.zfill(now.getMinutes()) + ':' + this.zfill(now.getSeconds());
+    return this.getDateTime(dateTime);
   }
   // 得到当前时间戳
   getNowTimestamp() {
     return this.stringToInt(this.getNowDatatTme());
+  }
+  // 得到 Y-m-d H:i:s 格式的日期时间字符串
+  getDateTime(dateTime) {
+    let month = dateTime.getMonth() + 1;
+
+    return dateTime.getFullYear() + '-' + this.zfill(month) + '-' + this.zfill(dateTime.getDate()) + ' ' + this.zfill(dateTime.getHours()) + ':' + this.zfill(dateTime.getMinutes()) + ':' + this.zfill(dateTime.getSeconds());
   }
   // 补零
   zfill(argc) {
@@ -56,12 +103,11 @@ class TimestampTransform extends React.Component {
 
     return date.getTime() / 1000;
   }
+  // 整型转字符串
+  intToString(argc) {
+    let dateTime = new Date(argc * 1000);
 
-  switchTimeState = () => {
-    this.setState({
-      isRunning: ! this.state.isRunning,
-      switchName: this.state.isRunning ? '开 启' : '暂 停'
-    });
+    return this.getDateTime(dateTime);
   }
 
   render() {
@@ -70,7 +116,7 @@ class TimestampTransform extends React.Component {
         <Columns style={{ paddingBottom: '3rem' }}>
           <Columns.Column className="is-5 has-text-centered">
               <Heading size={5} className="has-text-dark" weight="light">
-                  当前时间：{ this.state.datetime }
+                  当前时间：{ this.state.nowDateTime }
               </Heading>
           </Columns.Column>
           <Columns.Column className="is-2">
@@ -80,27 +126,27 @@ class TimestampTransform extends React.Component {
           </Columns.Column>
           <Columns.Column className="is-5 has-text-centered">
               <Heading size={5} className="has-text-dark" weight="light">
-                  Unix 时间戳：{ this.state.timestamp }
+                  Unix 时间戳：{ this.state.nowTimeStamp }
               </Heading>
           </Columns.Column>
         </Columns>
         <Columns className="is-centered">
           <Columns.Column className="is-5">
               <div className="control">
-                <textarea className="textarea is-focused has-fixed-size" rows="20" placeholder="时间字符串：2019-04-08 12:00:00"></textarea>
+                <textarea value={ this.state.dateTime } onChange={ this.dateTimeChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="时间字符串"></textarea>
               </div>
           </Columns.Column>
           <Columns.Column className="is-2">
-            <Button color="success" fullwidth rounded>
+            <Button color="success" fullwidth rounded onClick={ this.transform }>
               转 换
             </Button>
-            <Button color="info" fullwidth rounded style={{ marginTop: '2rem' }}>
-              转 换
+            <Button color="info" fullwidth rounded style={{ marginTop: '2rem' }} onClick={ this.clean }>
+              清 空
             </Button>
           </Columns.Column>
           <Columns.Column className="is-5">
               <div className="control">
-                <textarea className="textarea is-focused has-fixed-size" rows="20" placeholder="Unix 时间戳：1520987647"></textarea>
+                <textarea value={ this.state.timeStamp } onChange={ this.timeStampChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="Unix 时间戳"></textarea>
               </div>
           </Columns.Column>
         </Columns>
