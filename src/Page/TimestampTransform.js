@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Layout from '../Component/Layout';
 import { Columns, Button, Heading } from 'react-bulma-components';
 
-class TimestampTransform extends React.Component {
+class TimestampTransform extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      nowDateTime: this.getNowDatatTme(),
+       nowDateTime: this.getNowDatatTme(),
       nowTimeStamp: this.getNowTimestamp(),
-      isRunning: true,
-      switchName: '暂 停',
-      dateTime: '',
-      timeStamp: ''
+         isRunning: true,
+        switchName: '暂 停',
+          dateTime: '',
+         timeStamp: ''
     };
   }
   // 页面加载完成，创建时钟
@@ -29,28 +29,36 @@ class TimestampTransform extends React.Component {
   // 切换时钟运行状态
   switchTimeState = () => {
     this.setState({
-      isRunning: ! this.state.isRunning,
+       isRunning: ! this.state.isRunning,
       switchName: this.state.isRunning ? '开 启' : '暂 停'
     });
   }
   // 时间字符串与 Unix 时间戳互转
   transform = () => {
     if (this.state.dateTime.length > 0) {
-      this.setState({
-        timeStamp: this.stringToInt(this.state.dateTime)
-      });
+      let timeStamp = this.stringToInt(this.state.dateTime);
+
+      if (! isNaN(timeStamp)) {
+        this.setState({
+          timeStamp: timeStamp
+        });
+      }
     }
 
     if (this.state.timeStamp.length > 0) {
-      this.setState({
-        dateTime: this.intToString(this.state.timeStamp)
-      });
+      let dateTime = this.intToString(this.state.timeStamp);
+
+      if (! isNaN(dateTime)) {
+        this.setState({
+          dateTime: dateTime
+        });
+      }
     }
   }
   // 清空
   clean = () => {
     this.setState({
-      dateTime: '',
+       dateTime: '',
       timeStamp: ''
     });
   }
@@ -70,7 +78,7 @@ class TimestampTransform extends React.Component {
   running() {
     if (this.state.isRunning) {
       this.setState({
-        nowDateTime: this.getNowDatatTme(),
+         nowDateTime: this.getNowDatatTme(),
         nowTimeStamp: this.getNowTimestamp()
       });
     }
