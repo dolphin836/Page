@@ -4,7 +4,7 @@ import 'react-bulma-components/dist/react-bulma-components.min.css';
 import TimestampTransform from './Page/TimestampTransform';
 import GeneratorRandomPassword from './Page/GeneratorRandomPassword';
 import Home from './Page/Home';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Content, Heading } from 'react-bulma-components';
+import Content from 'react-bulma-components/lib/components/content';
+import Heading from 'react-bulma-components/lib/components/heading';
 
 class Title extends PureComponent {
     // 页面加载完成

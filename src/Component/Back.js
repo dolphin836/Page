@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Content, Heading } from 'react-bulma-components';
+import Content from 'react-bulma-components/lib/components/content';
+import Heading from 'react-bulma-components/lib/components/heading';
 
 function Back() {
     return (

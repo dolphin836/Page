@@ -1,8 +1,8 @@
 import React from 'react';
+import Container from 'react-bulma-components/lib/components/container';
 import Footer from './Footer';
 import Back from './Back';
 import Title from './Title';
-import { Container } from 'react-bulma-components';
 
 function Layout(props) {
   return (

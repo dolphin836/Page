@@ -1,7 +1,10 @@
 import React from 'react';
 import Footer from '../Component/Footer';
 import Item from '../Component/Item';
-import { Section, Container, Columns, Heading } from 'react-bulma-components';
+import Section from 'react-bulma-components/lib/components/section';
+import Container from 'react-bulma-components/lib/components/container';
+import Columns from 'react-bulma-components/lib/components/columns';
+import Heading from 'react-bulma-components/lib/components/heading';
 
 function Home() {
   return (

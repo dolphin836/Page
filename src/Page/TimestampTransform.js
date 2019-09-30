@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
+import Columns from 'react-bulma-components/lib/components/columns';
+import Button from 'react-bulma-components/lib/components/button';
+import Heading from 'react-bulma-components/lib/components/heading';
 import Layout from '../Component/Layout';
-import { Columns, Button, Heading } from 'react-bulma-components';
 
 class TimestampTransform extends PureComponent {
   constructor(props) {
@@ -32,7 +34,7 @@ class TimestampTransform extends PureComponent {
        isRunning: ! this.state.isRunning,
       switchName: this.state.isRunning ? '开 启' : '暂 停'
     });
-  }
+  };
   // 时间字符串与 Unix 时间戳互转
   transform = () => {
     if (this.state.dateTime.length > 0) {
@@ -54,26 +56,26 @@ class TimestampTransform extends PureComponent {
         });
       }
     }
-  }
+  };
   // 清空
   clean = () => {
     this.setState({
        dateTime: '',
       timeStamp: ''
     });
-  }
+  };
   // 时间字符串改变
   dateTimeChange = (e) => {
     this.setState({
       dateTime: e.target.value
     });
-  }
+  };
   // Unix 时间戳改变
   timeStampChange = (e) => {
     this.setState({
       timeStamp: e.target.value
     });
-  }
+  };
   // 时钟
   running() {
     if (this.state.isRunning) {
@@ -141,7 +143,7 @@ class TimestampTransform extends PureComponent {
         <Columns className="is-centered">
           <Columns.Column className="is-5">
               <div className="control">
-                <textarea value={ this.state.dateTime } onChange={ this.dateTimeChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="时间字符串"></textarea>
+                <textarea value={ this.state.dateTime } onChange={ this.dateTimeChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="时间字符串" />
               </div>
           </Columns.Column>
           <Columns.Column className="is-2">
@@ -154,7 +156,7 @@ class TimestampTransform extends PureComponent {
           </Columns.Column>
           <Columns.Column className="is-5">
               <div className="control">
-                <textarea value={ this.state.timeStamp } onChange={ this.timeStampChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="Unix 时间戳"></textarea>
+                <textarea value={ this.state.timeStamp } onChange={ this.timeStampChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="Unix 时间戳" />
               </div>
           </Columns.Column>
         </Columns>

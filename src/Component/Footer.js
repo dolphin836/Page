@@ -1,9 +1,11 @@
 import React from 'react';
-import { Footer as BulmaFooter, Container, Content } from 'react-bulma-components';
+import Footer from 'react-bulma-components/lib/components/footer';
+import Container from 'react-bulma-components/lib/components/container';
+import Content from 'react-bulma-components/lib/components/content';
 
-function Footer() {
+export default () => {
   return (
-    <BulmaFooter>
+    <Footer>
       <Container>
         <Content className="has-text-centered">
             <p style={{ marginBottom: '.4rem' }}>&copy; 2019 <a href="https://www.haibing.site">程序员工具箱</a> BY <a href="https://github.com/dolphin836/Blog" target="_blank" rel="noopener noreferrer">dolphin</a></p>
@@ -12,8 +14,6 @@ function Footer() {
             </p>
         </Content>
       </Container>
-    </BulmaFooter>
+    </Footer>
   );
 }
-
-export default Footer;

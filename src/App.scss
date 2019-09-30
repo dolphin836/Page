@@ -1,0 +1,22 @@
+@import "~react-bulma-components/src/index.sass";
+
+.awesome {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  padding-bottom: 4rem;
+}
+
+.back {
+  padding: 2rem 0 2rem 0;
+}
+
+.back p {
+  padding-bottom: .5rem;
+  border-bottom: .2rem solid #3273dc;
+  display: inline;
+}
