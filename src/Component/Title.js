@@ -2,10 +2,6 @@ import React, { PureComponent } from 'react';
 import { Content, Heading } from 'react-bulma-components';
 
 class Title extends PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
     // 页面加载完成
     componentDidMount() {
         // 设置页面标题

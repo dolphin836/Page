@@ -9,12 +9,12 @@ function Layout(props) {
     <div className="awesome">
       <div className="app">
         <Container>
-          <Back></Back>
-          <Title title={ props.title } subtitle={ props.subtitle }></Title>
+          <Back />
+          <Title title={ props.title } subtitle={ props.subtitle } />
           { props.children }
         </Container>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

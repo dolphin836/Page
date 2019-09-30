@@ -7,7 +7,7 @@ class TimestampTransform extends PureComponent {
     super(props);
 
     this.state = {
-       nowDateTime: this.getNowDatatTme(),
+       nowDateTime: this.getNowDateTme(),
       nowTimeStamp: this.getNowTimestamp(),
          isRunning: true,
         switchName: '暂 停',
@@ -78,29 +78,29 @@ class TimestampTransform extends PureComponent {
   running() {
     if (this.state.isRunning) {
       this.setState({
-         nowDateTime: this.getNowDatatTme(),
+         nowDateTime: this.getNowDateTme(),
         nowTimeStamp: this.getNowTimestamp()
       });
     }
   }
   // 得到当前日期时间字符串
-  getNowDatatTme() {
+  getNowDateTme() {
     let dateTime = new Date();
 
     return this.getDateTime(dateTime);
   }
   // 得到当前时间戳
   getNowTimestamp() {
-    return this.stringToInt(this.getNowDatatTme());
+    return this.stringToInt(this.getNowDateTme());
   }
   // 得到 Y-m-d H:i:s 格式的日期时间字符串
   getDateTime(dateTime) {
     let month = dateTime.getMonth() + 1;
 
-    return dateTime.getFullYear() + '-' + this.zfill(month) + '-' + this.zfill(dateTime.getDate()) + ' ' + this.zfill(dateTime.getHours()) + ':' + this.zfill(dateTime.getMinutes()) + ':' + this.zfill(dateTime.getSeconds());
+    return dateTime.getFullYear() + '-' + this.zFill(month) + '-' + this.zFill(dateTime.getDate()) + ' ' + this.zFill(dateTime.getHours()) + ':' + this.zFill(dateTime.getMinutes()) + ':' + this.zFill(dateTime.getSeconds());
   }
   // 补零
-  zfill(argc) {
+  zFill(argc) {
     let s = "0" + argc;
 
     return s.substr(s.length - 2);
