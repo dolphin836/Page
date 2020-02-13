@@ -1,10 +1,7 @@
 import React from 'react';
 import Footer from '../Component/Footer';
 import Item from '../Component/Item';
-import Section from 'react-bulma-components/lib/components/section';
-import Container from 'react-bulma-components/lib/components/container';
-import Columns from 'react-bulma-components/lib/components/columns';
-import Heading from 'react-bulma-components/lib/components/heading';
+import { Container, Section, Column, Title } from "rbx";
 
 function Home() {
   return (
@@ -12,24 +9,43 @@ function Home() {
       <div className="app">
         <Section>
           <Container>
-            <Heading renderAs="h5" size={3}>工 具</Heading>
-            <Columns>
-              <Columns.Column>
+            <Title as="h5" size={ 3 }>工 具</Title>
+            <Column.Group>
+              <Column>
                 <Item name="时间字符串与 Unix 时间戳互转" link="TimestampTransform" color="link" isPage />
-              </Columns.Column>
-              <Columns.Column>
+              </Column>
+              <Column>
                 <Item name="生成更安全的随机密码" link="GeneratorRandomPassword" color="link" isPage />
-              </Columns.Column>
-            </Columns>
-            <Heading renderAs="h5" size={3}>应 用</Heading>
-            <Columns>
-              <Columns.Column>
-                <Item name="图片" link="https://36photo.cn" color="success" />
-              </Columns.Column>
-              <Columns.Column>
-                <Item name="导航" link="https://36awesome.com" color="success" />
-              </Columns.Column>
-            </Columns>
+              </Column>
+            </Column.Group>
+            <Title as="h5" size={ 3 }>应 用</Title>
+            <Column.Group>
+              <Column>
+                <Item name="高品质图片分享" link="https://36photo.cn/photos" color="success" />
+              </Column>
+              <Column>
+                <Item name="精选网络应用导航" link="https://36awesome.com" color="success" />
+              </Column>
+            </Column.Group>
+            <Column.Group>
+              <Column size="half">
+                <Item name="安全的密码管理" link="https://my.36password.com" color="success" />
+              </Column>
+            </Column.Group>
+            <Title as="h5" size={ 3 }>社 交</Title>
+            <Column.Group>
+              <Column>
+                <Item name="微博" content="部分转发内容并不代表本人观点" link="https://www.weibo.com/dolphin836" color="warning" />
+              </Column>
+              <Column>
+                <Item name="博客" content="编程、PHP、Java、React" link="https://github.com/dolphin836/Blog" color="warning" />
+              </Column>
+            </Column.Group>
+            <Column.Group>
+              <Column size="half">
+                <Item name="邮箱" content="dolphin@36photo.cn" color="warning" />
+              </Column>
+            </Column.Group>
           </Container>
         </Section>
       </div>

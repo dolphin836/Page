@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Content from 'react-bulma-components/lib/components/content';
-import Heading from 'react-bulma-components/lib/components/heading';
+import { Content, Title } from "rbx";
 
 function Back() {
     return (
         <Content className="back">
             <Link to="/">
-                <Heading renderAs="p" size={6} weight="light">
+                <Title as="p" size={ 6 } className="has-text-weight-light">
                     Back Home
-                </Heading>
+                </Title>
             </Link>
         </Content>
     );

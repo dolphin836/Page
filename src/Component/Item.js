@@ -1,9 +1,8 @@
 import React from 'react';
-import Message from 'react-bulma-components/lib/components/message';
-import Heading from 'react-bulma-components/lib/components/heading';
 import { Link } from "react-router-dom";
+import { Message, Title } from "rbx";
 
-function Item({color, isPage, link, name}) {
+function Item({color, isPage, link, name, content}) {
 
     let nameLink;
 
@@ -13,12 +12,19 @@ function Item({color, isPage, link, name}) {
         nameLink = <a href={ link } style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">{ name }</a>;
     }
 
+    let contentNode;
+
+    if (content) {
+        contentNode = <Title size={ 6 } subtitle className="has-text-grey has-text-weight-light">{ content }</Title>
+    }
+
     return (
         <Message color={ color } size="large">
             <Message.Body className="is-radiusless">
-                <Heading renderAs="p" size={4}>
+                <Title as="p" size={ 4 }>
                     { nameLink }
-                </Heading>
+                </Title>
+                { contentNode }
             </Message.Body>
         </Message>
     );

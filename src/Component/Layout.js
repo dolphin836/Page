@@ -1,8 +1,8 @@
 import React from 'react';
-import Container from 'react-bulma-components/lib/components/container';
+import { Container } from "rbx";
 import Footer from './Footer';
 import Back from './Back';
-import Title from './Title';
+import Name from './Name';
 
 function Layout(props) {
   return (
@@ -10,7 +10,7 @@ function Layout(props) {
       <div className="app">
         <Container>
           <Back />
-          <Title title={ props.title } subtitle={ props.subtitle } />
+          <Name title={ props.title } subtitle={ props.subtitle } />
           { props.children }
         </Container>
       </div>

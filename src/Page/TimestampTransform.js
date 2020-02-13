@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
-import Columns from 'react-bulma-components/lib/components/columns';
-import Button from 'react-bulma-components/lib/components/button';
-import Heading from 'react-bulma-components/lib/components/heading';
+import { Button, Column, Title } from "rbx";
 import Layout from '../Component/Layout';
 
 class TimestampTransform extends PureComponent {
@@ -123,43 +121,43 @@ class TimestampTransform extends PureComponent {
   render() {
     return (
       <Layout title="时间字符串与 Unix 时间戳互转" subtitle="时间字符串与 Unix 时间戳互转">
-        <Columns style={{ paddingBottom: '3rem' }}>
-          <Columns.Column className="is-5 has-text-centered">
-              <Heading size={5} className="has-text-dark" weight="light">
+        <Column.Group style={{ paddingBottom: '3rem' }}>
+          <Column className="is-5 has-text-centered">
+              <Title size={5} className="has-text-dark has-text-weight-light">
                   当前时间：{ this.state.nowDateTime }
-              </Heading>
-          </Columns.Column>
-          <Columns.Column className="is-2">
+              </Title>
+          </Column>
+          <Column className="is-2">
             <Button color="primary" fullwidth rounded onClick={ this.switchTimeState }>
             { this.state.switchName }
             </Button>
-          </Columns.Column>
-          <Columns.Column className="is-5 has-text-centered">
-              <Heading size={5} className="has-text-dark" weight="light">
+          </Column>
+          <Column className="is-5 has-text-centered">
+              <Title size={5} className="has-text-dark has-text-weight-light">
                   Unix 时间戳：{ this.state.nowTimeStamp }
-              </Heading>
-          </Columns.Column>
-        </Columns>
-        <Columns className="is-centered">
-          <Columns.Column className="is-5">
+              </Title>
+          </Column>
+        </Column.Group>
+        <Column.Group className="is-centered">
+          <Column className="is-5">
               <div className="control">
                 <textarea value={ this.state.dateTime } onChange={ this.dateTimeChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="时间字符串" />
               </div>
-          </Columns.Column>
-          <Columns.Column className="is-2">
+          </Column>
+          <Column className="is-2">
             <Button color="success" fullwidth rounded onClick={ this.transform }>
               转 换
             </Button>
             <Button color="info" fullwidth rounded style={{ marginTop: '2rem' }} onClick={ this.clean }>
               清 空
             </Button>
-          </Columns.Column>
-          <Columns.Column className="is-5">
+          </Column>
+          <Column className="is-5">
               <div className="control">
                 <textarea value={ this.state.timeStamp } onChange={ this.timeStampChange } className="textarea is-focused has-fixed-size" rows="20" placeholder="Unix 时间戳" />
               </div>
-          </Columns.Column>
-        </Columns>
+          </Column>
+        </Column.Group>
       </Layout>
     );
   }

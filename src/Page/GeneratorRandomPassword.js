@@ -1,15 +1,10 @@
 import React, {PureComponent} from 'react';
-import Columns from 'react-bulma-components/lib/components/columns';
-import Tag from 'react-bulma-components/lib/components/tag';
-import Button from 'react-bulma-components/lib/components/button';
-import Content from 'react-bulma-components/lib/components/content';
-import {Checkbox} from 'react-bulma-components/lib/components/form';
 import Layout from '../Component/Layout';
-import Heading from "react-bulma-components/lib/components/heading";
 import Clipboard from 'react-clipboard.js';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import { store } from 'react-notifications-component';
+import { Button, Content, Column, Title, Tag, Label, Checkbox } from "rbx";
 
 class GeneratorRandomPassword extends PureComponent {
     // 字符池配置
@@ -107,6 +102,7 @@ class GeneratorRandomPassword extends PureComponent {
 
     //
     isCapChange = () => {
+        console.log(1);
         if (this.getCharConfigCount() > 1 || !this.state.isCap) {
             this.setState({
                 isCap: !this.state.isCap
@@ -192,15 +188,15 @@ class GeneratorRandomPassword extends PureComponent {
         return (
             <Layout title="生成更安全的随机密码" subtitle="Generator random and safe password">
                 <ReactNotification />
-                <Columns>
-                    <Columns.Column className="is-5">
+                <Column.Group>
+                    <Column className="is-5">
                         <Content>
                             <Tag.Group gapless style={{justifyContent: 'center'}}>
                                 <Tag>密码长度</Tag>
                                 <Tag color="primary">{this.state.passwordLength}</Tag>
                             </Tag.Group>
                             <input type="range" onChange={this.passwordLengthChange}
-                                   className="slider is-small is-fullwidth is-info"
+                                   className="slider"
                                    step="1" min="6" max="40" value={this.state.passwordLength}/>
                         </Content>
                         <Content>
@@ -209,42 +205,49 @@ class GeneratorRandomPassword extends PureComponent {
                                 <Tag color="primary">{this.state.passwordCount}</Tag>
                             </Tag.Group>
                             <input type="range" onChange={this.passwordCountChange}
-                                   className="slider is-small is-fullwidth is-info"
+                                   className="slider"
                                    step="1" min="1" max="20" value={this.state.passwordCount}/>
                         </Content>
-                        <Heading size={4}>字符集</Heading>
+                        <Title size={4}>字符集</Title>
                         <Content>
-                            <Checkbox onChange={this.isCapChange} checked={this.state.isCap}
+                            <Label style={{ paddingLeft: 0 }} onClick={this.isCapChange}>
+                                <Checkbox as="span" checked={this.state.isCap}
                                       className={this.state.isCap ? 'is-checked' : ''}> A B C D E F G H I J K L M
                                 N O P Q R S T U V W X Y Z</Checkbox>
+                            </Label>
                         </Content>
                         <Content>
-                            <Checkbox onChange={this.isLowChange} checked={this.state.isLow}
+                            <Label style={{ paddingLeft: 0 }} onClick={this.isLowChange}>
+                                <Checkbox as="span" checked={this.state.isLow}
                                       className={this.state.isLow ? 'is-checked' : ''}> a b c d e f g h i j k l m
                                 n o p q r s t u v w x y z</Checkbox>
+                            </Label>
                         </Content>
                         <Content>
-                            <Checkbox onChange={this.isNumChange} checked={this.state.isNum}
+                            <Label style={{ paddingLeft: 0 }} onClick={this.isNumChange}>
+                                <Checkbox as="span" checked={this.state.isNum}
                                       className={this.state.isNum ? 'is-checked' : ''}> 0 1 2 3 4 5 6 7 8
                                 9</Checkbox>
+                            </Label>
                         </Content>
                         <Content>
-                            <Checkbox onChange={this.isOthChange} checked={this.state.isOth}
+                            <Label style={{ paddingLeft: 0 }} onClick={this.isOthChange}>
+                                <Checkbox as="span" checked={this.state.isOth}
                                       className={this.state.isOth ? 'is-checked' : ''}> # % * ^ & - _ + = | [
                                 ] {} ( ) ? / ` ~ '</Checkbox>
+                            </Label>
                         </Content>
                         <Button color="info" size="medium" fullwidth rounded onClick={this.getPassword}
                                 style={{marginTop: '4rem'}}>换一组</Button>
-                    </Columns.Column>
-                    <Columns.Column className="is-2">
-                    </Columns.Column>
-                    <Columns.Column className="is-5">
-                        {/*<Password password={this.state.password}/>*/}
+                    </Column>
+                    <Column className="is-2">
+                    </Column>
+                    <Column className="is-5">
                         <div className="password-group">
                             {this.state.passwordGroup}
                         </div>
-                    </Columns.Column>
-                </Columns>
+                    </Column>
+                </Column.Group>
             </Layout>
         );
     }
