@@ -25,5 +25,5 @@ yarn-error.log*
 /.idea
 
 # Mp3 File
-/bulid/Asset/Fm/Mp3/*
+/build/Asset/Fm/Mp3/*
 /public/Asset/Fm/Mp3/*
