@@ -1,0 +1,47 @@
+{
+    "name": "抖音热曲第一期",
+    "content": "抖音热曲，百听不厌",
+    "photo": "1.jpg",
+    "data": [
+        {
+            "name": "清新的小女孩",
+            "mp3": "清新的小女孩.mp3"
+        },
+        {
+            "name": "芒种",
+            "mp3": "芒种.mp3"
+        },
+        {
+            "name": "桥边姑娘",
+            "mp3": "桥边姑娘.mp3"
+        },
+        {
+            "name": "Sweet But Psycho",
+            "mp3": "Sweet But Psycho.mp3"
+        },
+        {
+            "name": "不再联系",
+            "mp3": "不再联系.mp3"
+        },
+        {
+            "name": "光年之外",
+            "mp3": "光年之外.mp3"
+        },
+        {
+            "name": "That Girl",
+            "mp3": "That Girl.mp3"
+        },
+        {
+            "name": "胡广生",
+            "mp3": "胡广生.mp3"
+        },
+        {
+            "name": "黎明前的黑暗",
+            "mp3": "黎明前的黑暗.mp3"
+        },
+        {
+            "name": "阿刁",
+            "mp3": "阿刁.mp3"
+        }
+    ]
+}

@@ -12,10 +12,10 @@ function Home() {
             <Title as="h5" size={ 3 }>工 具</Title>
             <Column.Group>
               <Column>
-                <Item name="时间字符串与 Unix 时间戳互转" link="TimestampTransform" color="link" isPage />
+                <Item name="时间字符串与 Unix 时间戳互转" content="Transform Unix Time Stamp And Data Time" link="TimestampTransform" color="link" isPage />
               </Column>
               <Column>
-                <Item name="生成更安全的随机密码" link="GeneratorRandomPassword" color="link" isPage />
+                <Item name="生成更安全的随机密码" content="Generator Random And Safe Password" link="GeneratorRandomPassword" color="link" isPage />
               </Column>
             </Column.Group>
             <Title as="h5" size={ 3 }>应 用</Title>
@@ -28,8 +28,11 @@ function Home() {
               </Column>
             </Column.Group>
             <Column.Group>
-              <Column size="half">
+              <Column>
                 <Item name="安全的密码管理" link="https://my.36password.com" color="success" />
+              </Column>
+              <Column>
+                <Item name="音乐电台" link="Fm" color="success" isPage />
               </Column>
             </Column.Group>
             <Title as="h5" size={ 3 }>社 交</Title>
