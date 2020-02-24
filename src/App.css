@@ -64,3 +64,35 @@
   border-radius: .4rem;
   margin-bottom: .4rem;
 }
+
+.channel-song {
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.channel-run-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+	transform: translateY(-50%);
+}
+
+.channel-cover {
+  max-width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.channel-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: .3rem;
+  border-radius: 0;
+}
+
+.channel-list {
+  padding-top: 4rem;
+}

@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
 import FmLayout from '../Component/FmLayout';
-import { List, Button } from "rbx";
+import { Block, Button, Image, Title, Icon, Progress, Content } from "rbx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileAudio } from '@fortawesome/free-solid-svg-icons';
+import Playing from '../Component/Playing';
 
 const Asset = '../../Asset/Fm/';
+const Photo = '../../Asset/Fm/Photo/';
 const Mp3   = '../../Asset/Fm/Mp3/';
 
 class Channel extends PureComponent {
@@ -20,7 +24,9 @@ class Channel extends PureComponent {
                      mute: "静音",
                      play: "暂停",
                    volume: 100
-               }
+               },
+           duration: 100,
+             second: 0
         };
 
         this.music = React.createRef();
@@ -66,10 +72,10 @@ class Channel extends PureComponent {
     }
 
     tick() {
-        // console.log(this.music.current.readyState);
-        // console.log(this.music.current.duration);
-        // console.log(this.music.current.currentTime);
-        // console.log(this.music.current.ended);
+        this.setState({
+            duration: Math.trunc(this.music.current.duration),
+              second: Math.trunc(this.music.current.currentTime)
+        });
     }
 
     // 播放
@@ -144,21 +150,40 @@ class Channel extends PureComponent {
 
     render() {
         return (
-            <FmLayout title={ this.state.name } subtitle={ this.state.content }>
+            <FmLayout title={ this.state.name } content={ this.state.content } photo={ this.state.photo } >
                 <audio src={ this.state.mp3 } ref={ this.music } onEnded= { () => this.next() } autoPlay>
                 </audio>
-                <Button.Group>
+                <Progress color="success" className="channel-progress" value={ this.state.second } max={ this.state.duration } />
+
+                <Content className="is-pulled-right"> 
+                    <Button.Group>
+                        <Button outlined color="danger" static rounded>分 享</Button>
+                        <Button outlined color="link" static rounded>下 载</Button>
+                    </Button.Group>
+                </Content>
+
+                <Content className="channel-list">
+                { this.state.data.map((song, i) =>
+                    <Block key={ i } onClick={() => this.song(i) } className="channel-song">
+                        <Playing ListId={ i } RunId={ this.state.i } />
+                        <Title as="h6" size={ 6 } className="has-text-grey-dark has-text-weight-light">
+                            { song.name }
+                        </Title>
+                        <Title as="p" size={ 7 } subtitle className="has-text-grey-light has-text-weight-light">
+                            { song.name }
+                        </Title>
+                    </Block>
+                )}
+                </Content>
+
+                {/* <Button.Group>
                     <Button onClick={() => this.mute() }>{ this.state.text.mute }</Button>
                     <Button onClick={() => this.play() }>{ this.state.text.play }</Button>
                     <Button onClick={() => this.next() }>下一首</Button>
                     <Button onClick={() => this.last() }>上一首</Button>
                 </Button.Group>
-                <input type="range" onChange={this.volumeChange} step="0.01" min="0" max="1" /> { this.state.text.volume }
-                <List>
-                    { this.state.data.map((song, i) =>
-                        <List.Item key={ i } onClick={() => this.song(i) }>{ song.name }</List.Item>
-                    )}   
-                </List>
+                <input type="range" onChange={this.volumeChange} step="0.01" min="0" max="1" /> { this.state.text.volume } */}
+                
             </FmLayout>
         );
     }
