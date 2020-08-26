@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Content, Title } from "rbx";
 
-function Back() {
+function Back(props) {
     return (
         <Content className="back">
-            <Link to="/">
+            <Link to={ props.back || '/' }>
                 <Title as="p" size={ 6 } className="has-text-weight-light">
-                    Back Home
+                    Back { props.backname || 'Home' }
                 </Title>
             </Link>
         </Content>

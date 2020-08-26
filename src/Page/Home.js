@@ -45,8 +45,11 @@ function Home() {
               </Column>
             </Column.Group>
             <Column.Group>
-              <Column size="half">
+              <Column>
                 <Item name="邮箱" content="dolphin@36photo.cn" color="warning" />
+              </Column>
+              <Column>
+                <Item name="私人视频" content="请勿传播" link="Video" color="warning" isPage />
               </Column>
             </Column.Group>
           </Container>

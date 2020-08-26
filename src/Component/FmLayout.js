@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Section, Title, Image, Content } from "rbx";
-import BackFm from './BackFm';
+import Back from './Back';
 
 const Photo = '../../Asset/Fm/Photo/';
 
@@ -10,7 +10,7 @@ function FmLayout(props) {
       <div className="app">
         <Section style={{ paddingTop: '0' }}>
           <Container>
-            <BackFm />
+            <Back back="/Fm" backname="Fm" />
             <Content className="has-text-centered">
               <Title as="h5" size={ 5 }>
                 { props.title }

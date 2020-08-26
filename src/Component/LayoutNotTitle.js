@@ -2,16 +2,14 @@ import React from 'react';
 import { Container, Section } from "rbx";
 import Footer from './Footer';
 import Back from './Back';
-import Name from './Name';
 
-function Layout(props) {
+function LayoutNotTitle(props) {
   return (
     <div className="awesome">
       <div className="app">
         <Section style={{ paddingTop: '0'}}>
           <Container>
-            <Back back={ props.back || '/' } backname={ props.backname || 'Home' } />
-            <Name title={ props.title } subtitle={ props.subtitle } />
+            <Back />
             { props.children }
           </Container>
         </Section>
@@ -21,4 +19,4 @@ function Layout(props) {
   );
 }
 
-export default Layout;
+export default LayoutNotTitle;
