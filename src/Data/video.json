@@ -1,23 +1,23 @@
 [
     {
-        "code": "B8D12B59A221C14884F664D07D4AAE53",
-        "name": "Faded - Alan Walker",
-        "category": "音乐",
-        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/B8D12B59A221C14884F664D07D4AAE53.webp",
-        "video": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/B8D12B59A221C14884F664D07D4AAE53.mp4"
+        "code": "EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE",
+        "name": "美国国务卿蓬佩奥演讲： 共产中国与自由世界的未來",
+        "category": "政治",
+        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Politics/EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE.jpg",
+        "video": "https://36video.oss-cn-hangzhou.aliyuncs.com/Politics/EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE.mp4"
     },
     {
         "code": "AWS9BGN773F14YU7SHUPZQM8QC1ALOW2",
         "name": "黎明前的黑暗 - 张韶涵/王晰",
         "category": "音乐",
-        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/AWS9BGN773F14YU7SHUPZQM8QC1ALOW2.webp",
+        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/AWS9BGN773F14YU7SHUPZQM8QC1ALOW2.jpg",
         "video": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/AWS9BGN773F14YU7SHUPZQM8QC1ALOW2.mp4"
     },
     {
-        "code": "EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE",
-        "name": "美国国务卿蓬佩奥演讲： 共产中国与自由世界的未來",
-        "category": "政治",
-        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Politics/EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE.webp",
-        "video": "https://36video.oss-cn-hangzhou.aliyuncs.com/Politics/EO5NMSVQBV6YEQIDKOG7LMNC5XTTSPIE.webm"
+        "code": "B8D12B59A221C14884F664D07D4AAE53",
+        "name": "Faded - Alan Walker",
+        "category": "音乐",
+        "cover": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/B8D12B59A221C14884F664D07D4AAE53.jpg",
+        "video": "https://36video.oss-cn-hangzhou.aliyuncs.com/Music/B8D12B59A221C14884F664D07D4AAE53.mp4"
     }
 ]
