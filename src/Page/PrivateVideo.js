@@ -70,7 +70,7 @@ class PrivateVideo extends PureComponent {
                     <Tab active={ item.isActive } key={ i } onClick={() => this.category(item.name) }>{ item.name } - { item.count }</Tab>
                 )}
             </Tab.Group>
-                <Column.Group>
+                <Column.Group multiline>
                     { this.state.data.map((channel, i) =>
                         <Column key={ i } size={ 3 }>
                             <Image.Container>
