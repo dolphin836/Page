@@ -78,8 +78,11 @@ class PrivateVideo extends PureComponent {
                                     <Image src={ channel.cover } className="channel-photo" />
                                 </Link>
                             </Image.Container>
-                            <Title as="p" size={ 6 } subtitle className="has-text-grey has-text-weight-light">
+                            <Title as="p" size={ 6 } subtitle className="has-text-dark has-text-weight" style={{ marginBottom: '.4rem' }}>
                                 { channel.name }
+                            </Title>
+                            <Title as="p" size={ 7 } subtitle className="has-text-grey has-text-weight-light">
+                                添加日期：{ channel.update_date }
                             </Title>
                         </Column>
                     )}
