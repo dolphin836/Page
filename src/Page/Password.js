@@ -19,10 +19,10 @@ class Password extends PureComponent {
                 return;
             }
 
-            // 添加到 Local Storage 中，有效期 1 天
+            // 添加到 Local Storage 中，有效期 10 天
             let password = {
                  password: e.target.value,
-                timestamp: parseInt(Date.now() / 1000) + (24 * 3600) 
+                timestamp: parseInt(Date.now() / 1000) + (10 * 24 * 3600) 
             };
 
             localStorage.setItem('password', JSON.stringify(password));
