@@ -1,28 +1,44 @@
 import React, { PureComponent } from 'react';
 import Layout from '../Component/Layout';
 import { Player } from 'video-react';
-import Data from '../Data/video.json';
 import "../../node_modules/video-react/dist/video-react.css"; // import css
 
 class Video extends PureComponent {
     constructor(props) {
         super(props);
 
-        let data;
-        
-        Data.map((channel) => {
-            if (channel.code === this.props.match.params.Code) {
-                data = channel;
-            }
-        });
-
         this.state = {
-            data: data
+            data: []
         };
     }
 
     componentDidMount() {
+        let _self = this;
 
+        fetch('https://36video.oss-cn-hangzhou.aliyuncs.com/video.json')
+            .then(function (response) {
+                if (response.ok) {
+                    let json = response.json();
+                    
+                    json.then(function(source) {
+                        let data;
+
+                        source.map((channel) => {
+                            if (channel.code === _self.props.match.params.Code) {
+                                data = channel;
+                            }
+                        });
+                        // 更新数据
+                        _self.setState({
+                            data: data
+                        });
+                    });
+                }
+            })
+            .catch(function (error) {
+                console.log(JSON.stringify(error));
+            });
+    
     }
 
     render() {

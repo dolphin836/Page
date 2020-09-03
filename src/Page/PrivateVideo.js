@@ -2,52 +2,73 @@ import React, { PureComponent } from 'react';
 import { Link } from "react-router-dom";
 import Layout from '../Component/Layout';
 import { Column, Image, Title, Tab } from "rbx";
-import Data from '../Data/video.json';
 
 class PrivateVideo extends PureComponent {
     constructor(props) {
         super(props);
 
-        let categoryName = ["全部"];
-        let categoryData = [
-            {
-                    name: "全部",
-                   count: 0,
-                isActive: true
-            }
-        ];
-        let data         = [];
-
-        Data.map((channel) => {
-            let index = categoryName.indexOf(channel.category);
-
-            if (index === -1) { // 不存在
-                categoryName.push(channel.category);
-                categoryData.push({
-                        name: channel.category,
-                       count: 1,
-                    isActive: false
-                });
-
-                categoryData[0].count++;     // 全部分类数量加一
-            } else { // 已存在
-                categoryData[index].count++; // 当前分类数量加一
-                categoryData[0].count++;     // 全部分类数量加一
-            }
-
-            data.push(channel);
-        });
-
         this.state = {
-            categoryData: categoryData,
-                    data: data
+                  source: [], // 所有记录
+            categoryData: [], // 分类数据
+                    data: []  // 当前展示记录
         };
     }
+
+    componentDidMount() {
+        let _self = this;
+
+        fetch('https://36video.oss-cn-hangzhou.aliyuncs.com/video.json')
+            .then(function (response) {
+                if (response.ok) {
+                    let json = response.json();
+                    
+                    json.then(function(source) {
+                        let categoryName = ["全部"];
+                        let categoryData = [
+                            {
+                                    name: "全部",
+                                   count: 0,
+                                isActive: true
+                            }
+                        ];
+                        // 解析数据得到分类数据
+                        source.map((channel) => {
+                            let index = categoryName.indexOf(channel.category);
+                
+                            if (index === -1) { // 不存在
+                                categoryName.push(channel.category);
+                                categoryData.push({
+                                        name: channel.category,
+                                       count: 1,
+                                    isActive: false
+                                });
+                
+                                categoryData[0].count++;     // 全部分类数量加一
+                            } else { // 已存在
+                                categoryData[index].count++; // 当前分类数量加一
+                                categoryData[0].count++;     // 全部分类数量加一
+                            }
+                        });
+                        // 更新数据
+                        _self.setState({
+                                  source: source,
+                            categoryData: categoryData,
+                                    data: source
+                        });
+                    });
+                }
+            })
+            .catch(function (error) {
+                console.log(JSON.stringify(error));
+            });
+    
+    }
+
     // 筛选分类
     category = (categoryName) => {
         let data = [];
 
-        Data.map((channel) => {
+        this.state.source.map((channel) => {
             if (categoryName === '全部' || channel.category === categoryName) {
                 data.push(channel);
             }
