@@ -61,17 +61,25 @@ class Video extends PureComponent {
     }
 
     render() {
-        return (
-            <Layout title={ this.state.name } back="/Video" backname="Video">
-                <Player autoPlay={ true } src={ this.state.video } />
-
-                { this.state.list.map((channel, i) =>
-                    <Title onClick={() => this.switchVideo(channel) } key={ i } as="p" size={ 5 } subtitle className="has-text-dark has-text-weight">
-                        { channel.name }
-                    </Title>
-                )}
-            </Layout>
-        );
+        if (this.state.list) {
+            return (
+                <Layout title={ this.state.name } back="/Video" backname="Video">
+                    <Player autoPlay={ true } src={ this.state.video } />
+    
+                    { this.state.list.map((channel, i) =>
+                        <Title onClick={() => this.switchVideo(channel) } key={ i } as="p" size={ 5 } subtitle className="has-text-dark has-text-weight">
+                            { channel.name }
+                        </Title>
+                    )}
+                </Layout>
+            );
+        } else {
+            return (
+                <Layout title={ this.state.name } back="/Video" backname="Video">
+                    <Player autoPlay={ true } src={ this.state.video } />
+                </Layout>
+            );
+        }
     }
 }
 
