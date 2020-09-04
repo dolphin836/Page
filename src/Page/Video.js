@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Layout from '../Component/Layout';
 import { Player } from 'video-react';
-import { Title } from "rbx";
+import { Column, Menu } from "rbx";
 import "../../node_modules/video-react/dist/video-react.css"; // import css
 
 class Video extends PureComponent {
@@ -11,7 +11,8 @@ class Video extends PureComponent {
         this.state = {
              name: '',
             video: '',
-             list: []
+             list: [],
+                i: 0
         };
     }
 
@@ -46,6 +47,8 @@ class Video extends PureComponent {
                             video: video,
                              list: list
                         });
+                        // 设置页面标题
+                        document.title = name;
                     });
                 }
             })
@@ -54,9 +57,10 @@ class Video extends PureComponent {
             });
     }
 
-    switchVideo = (channel) => {
+    switchVideo = (channel, i) => {
         this.setState({
-            video: channel.video
+            video: channel.video,
+                i: i
         });
     }
 
@@ -64,13 +68,21 @@ class Video extends PureComponent {
         if (this.state.list) {
             return (
                 <Layout title={ this.state.name } back="/Video" backname="Video">
-                    <Player autoPlay={ true } src={ this.state.video } />
-    
-                    { this.state.list.map((channel, i) =>
-                        <Title onClick={() => this.switchVideo(channel) } key={ i } as="p" size={ 5 } subtitle className="has-text-dark has-text-weight">
-                            { channel.name }
-                        </Title>
-                    )}
+                    <Column.Group>
+                        <Column>
+                            <Player autoPlay={ true } src={ this.state.video } />
+                        </Column>
+                        <Column size="2">
+                            <Menu>
+                                <Menu.Label>播放列表</Menu.Label>
+                                <Menu.List>
+                                    { this.state.list.map((channel, i) =>
+                                        <Menu.List.Item key={ i } onClick={() => this.switchVideo(channel, i) } active={ i === this.state.i }>{ channel.name }</Menu.List.Item>
+                                    )}
+                                </Menu.List>
+                            </Menu>
+                        </Column>
+                    </Column.Group>
                 </Layout>
             );
         } else {
