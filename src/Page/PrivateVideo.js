@@ -103,7 +103,7 @@ class PrivateVideo extends PureComponent {
                                 { channel.name }
                             </Title>
                             <Title as="p" size={ 7 } subtitle className="has-text-grey has-text-weight-light">
-                                添加日期：{ channel.update_date }
+                                添加日期：{ channel.update_date }<span className="is-pulled-right">{ channel.list ? '合集 - ' + channel.list.length : '' }</span>
                             </Title>
                         </Column>
                     )}
