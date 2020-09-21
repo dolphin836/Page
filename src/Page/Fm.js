@@ -5,7 +5,7 @@ import { Column, Image, Title } from "rbx";
 
 const Asset   = '../Asset/Fm/';
 const Photo   = '../Asset/Fm/Photo/';
-const Channel = 1;
+const Channel = 2;
 
 class Fm extends PureComponent {
     constructor(props) {
