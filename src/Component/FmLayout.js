@@ -2,8 +2,6 @@ import React from 'react';
 import { Container, Section, Title, Image, Content } from "rbx";
 import Back from './Back';
 
-const Photo = '../../Asset/Fm/Photo/';
-
 function FmLayout(props) {
   return (
     <div className="awesome">
@@ -20,7 +18,7 @@ function FmLayout(props) {
               </Title>
             </Content>
             <Image.Container className="channel-cover">
-              <Image src={ Photo + props.photo } className="channel-photo" />
+              <Image src={ props.photo } className="channel-photo" />
             </Image.Container>
             { props.children }
           </Container>

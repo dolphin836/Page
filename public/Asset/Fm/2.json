@@ -1,23 +1,23 @@
 {
     "name": "粤语经典",
     "content": "粤语经典，百听不厌",
-    "photo": "2.jpg",
+    "photo": "https://36video.oss-cn-hangzhou.aliyuncs.com/Mp3/A14N072H52GD2BXCL4R70YAFJ7TM1L8H.jpg",
     "data": [
         {
             "name": "沉默是金 - 许冠杰 & 张国荣",
-            "mp3": "沉默是金.mp3"
+            "mp3": "https://36video.oss-cn-hangzhou.aliyuncs.com/Mp3/H6TRA2XXXJ3JUMVPVH930E6WWAYYS487.mp3"
         },
         {
             "name": "讲不出再见 - 谭咏麟",
-            "mp3": "讲不出再见.mp3"
+            "mp3": "https://36video.oss-cn-hangzhou.aliyuncs.com/Mp3/KR4E16T6BQFR2QCMADP8ZK8PZNC8ME48.mp3"
         },
         {
             "name": "终身美丽 - 郑秀文",
-            "mp3": "终身美丽.mp3"
+            "mp3": "https://36video.oss-cn-hangzhou.aliyuncs.com/Mp3/K4D00M9J7XD135ANP2YTCWSJ7E1DAE0E.mp3"
         },
         {
             "name": "祝福 - 叶倩文",
-            "mp3": "祝福.mp3"
+            "mp3": "https://36video.oss-cn-hangzhou.aliyuncs.com/Mp3/QQ9QK91NWRWNFV0RVOBWSZG0X2C210EC.mp3"
         }
     ]
 }

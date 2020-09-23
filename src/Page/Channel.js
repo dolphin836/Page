@@ -1,13 +1,9 @@
 import React, { PureComponent } from 'react';
 import FmLayout from '../Component/FmLayout';
 import { Block, Button, Image, Title, Icon, Progress, Content } from "rbx";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAudio } from '@fortawesome/free-solid-svg-icons';
 import Playing from '../Component/Playing';
 
 const Asset = '../../Asset/Fm/';
-const Photo = '../../Asset/Fm/Photo/';
-const Mp3   = '../../Asset/Fm/Mp3/';
 
 class Channel extends PureComponent {
     constructor(props) {
@@ -54,7 +50,7 @@ class Channel extends PureComponent {
                             content: data.content,
                               photo: data.photo,
                                data: data.data,
-                                mp3: Mp3 + data.data[0].mp3
+                                mp3: data.data[0].mp3
                         });
 
                         // 设置页面标题
@@ -81,7 +77,7 @@ class Channel extends PureComponent {
     // 播放
     song = (i) => {
         this.setState({
-            mp3: Mp3 + this.state.data[i].mp3,
+            mp3: this.state.data[i].mp3,
               i: i
         }, () => {
             this.music.current.play();

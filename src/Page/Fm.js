@@ -4,7 +4,6 @@ import Layout from '../Component/Layout';
 import { Column, Image, Title } from "rbx";
 
 const Asset   = '../Asset/Fm/';
-const Photo   = '../Asset/Fm/Photo/';
 const Channel = 2;
 
 class Fm extends PureComponent {
@@ -54,7 +53,7 @@ class Fm extends PureComponent {
                         <Column key={ i } size={ 3 }>
                             <Image.Container>
                                 <Link to={ "/FM/Channel/" + (i + 1) }>
-                                    <Image src={ Photo + channel.photo } className="channel-photo" />
+                                    <Image src={ channel.photo } className="channel-photo" />
                                 </Link>
                             </Image.Container>
                             <Title as="h5" size={ 5 }>
