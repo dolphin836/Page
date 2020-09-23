@@ -23,7 +23,3 @@ yarn-error.log*
 
 # idea config
 /.idea
-
-# Mp3 File
-/build/Asset/Fm/Mp3/*
-/public/Asset/Fm/Mp3/*
