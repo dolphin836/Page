@@ -20,7 +20,7 @@ function App() {
       <Route exact path="/GeneratorRandomPassword" component={GeneratorRandomPassword} />
       <Route exact path="/Password" component={Password} />
       <Route exact path="/Fm" component={Fm} />
-      <Route exact path="/Fm/Channel/:Id" component={Channel} />
+      <Route exact path="/Fm/Channel/:Code" component={Channel} />
       <PrivateRoute exact path="/Video" component={PrivateVideo} />
       <PrivateRoute exact path="/Video/:Code" component={Video} />
     </Router>

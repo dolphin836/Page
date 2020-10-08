@@ -86,13 +86,9 @@
 }
 
 .channel-progress {
-  position: fixed;
-  left: 0;
-  top: 0;
   height: .3rem;
-  border-radius: 0;
 }
 
 .channel-list {
-  padding-top: 4rem;
+  padding-top: 1rem;
 }

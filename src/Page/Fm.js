@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import Layout from '../Component/Layout';
 import { Column, Image, Title } from "rbx";
 
-const Asset   = '../Asset/Fm/';
-const Channel = 2;
-
 class Fm extends PureComponent {
     constructor(props) {
         super(props);
@@ -16,43 +13,45 @@ class Fm extends PureComponent {
     }
 
     componentDidMount() {
-        for (let i = 1; i <= Channel; i++) {
-            let server = Asset + i + '.json';
+        let server = 'https://36video.oss-cn-hangzhou.aliyuncs.com/Fm.json';
 
-            let _self = this;
+        let _self = this;
 
-            fetch(server)
-                .then(function (response) {
-                    if (response.ok) {
-                        let json = response.json();
-                        
-                        json.then(function(data) {
-                            let channel = {
-                                   name: data.name,
-                                content: data.content,
-                                  photo: data.photo,
+        fetch(server)
+            .then(function (response) {
+                if (response.ok) {
+                    let json = response.json();
+                    
+                    json.then(function(data) {
+                        data.map((channel) => {
+                            let item = {
+                                   code: channel.code,
+                                   name: channel.name,
+                                content: channel.content,
+                                  photo: channel.photo
                             };
-
+    
                             _self.setState({
-                                    data: _self.state.data.concat(channel)
+                                    data: _self.state.data.concat(item)
                             });
                         });
-                    }
-                })
-                .catch(function (error) {
-                    console.log(JSON.stringify(error));
-                });
-        }
+                    });
+                }
+            })
+            .catch(function (error) {
+                console.log(JSON.stringify(error));
+            });
+        
     }
 
     render() {
         return (
             <Layout title="音乐电台" subtitle="我年后虚度，空有一身疲惫">
-                <Column.Group>
+                <Column.Group multiline>
                     { this.state.data.map((channel, i) =>
                         <Column key={ i } size={ 3 }>
                             <Image.Container>
-                                <Link to={ "/FM/Channel/" + (i + 1) }>
+                                <Link to={ "/FM/Channel/" + channel.code }>
                                     <Image src={ channel.photo } className="channel-photo" />
                                 </Link>
                             </Image.Container>
