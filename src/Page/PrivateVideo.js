@@ -49,6 +49,16 @@ class PrivateVideo extends PureComponent {
                                 categoryData[0].count++;     // 全部分类数量加一
                             }
                         });
+                        // 排序：按添加日期降序
+                        source.sort(function (a, b) {
+                            let dateA      = new Date(a.update_date);
+                            let timestampA = dateA.getTime();
+
+                            let dateB      = new Date(b.update_date);
+                            let timestampB = dateB.getTime();
+
+                            return timestampB - timestampA;
+                        });
                         // 更新数据
                         _self.setState({
                                   source: source,
