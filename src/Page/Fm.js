@@ -34,6 +34,8 @@ class Fm extends PureComponent {
                             _self.setState({
                                     data: _self.state.data.concat(item)
                             });
+
+                            return [];
                         });
                     });
                 }

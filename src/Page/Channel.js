@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import FmLayout from '../Component/FmLayout';
-import { Block, Button, Title, Icon, Progress, Content, Level, Column } from "rbx";
+import { Block, Title, Icon, Progress, Content, Level } from "rbx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faStepBackward, faStepForward, faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import Playing from '../Component/Playing';
@@ -18,7 +18,7 @@ class Channel extends PureComponent {
                data: [],
                text: {
                     muteIcon: <FontAwesomeIcon icon={ faVolumeMute } />,
-                    playIcon: <FontAwesomeIcon icon={ faPlayCircle } size="2x" />
+                    playIcon: <FontAwesomeIcon icon={ faPauseCircle } size="2x" />
                },
            duration: 100,
              second: 0,
@@ -58,6 +58,8 @@ class Channel extends PureComponent {
                                 // 设置页面标题
                                 document.title = channel.name;
                             }
+
+                            return [];
                         });
                     });
                 }

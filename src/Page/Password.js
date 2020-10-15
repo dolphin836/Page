@@ -4,10 +4,6 @@ import LayoutNotTitle from '../Component/LayoutNotTitle';
 import Data from '../Data/password.json';
 
 class Password extends PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
     // 键盘事件
     onKeyPress = (e) => {
         // 回车键

@@ -40,6 +40,8 @@ class Video extends PureComponent {
                                     video = channel.video;
                                 }
                             }
+
+                            return [];
                         });
                         // 更新数据
                         _self.setState({

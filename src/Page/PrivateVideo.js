@@ -48,6 +48,8 @@ class PrivateVideo extends PureComponent {
                                 categoryData[index].count++; // 当前分类数量加一
                                 categoryData[0].count++;     // 全部分类数量加一
                             }
+
+                            return [];
                         });
                         // 排序：按添加日期降序
                         source.sort(function (a, b) {
@@ -82,6 +84,8 @@ class PrivateVideo extends PureComponent {
             if (categoryName === '全部' || channel.category === categoryName) {
                 data.push(channel);
             }
+
+            return [];
         });
 
         this.setState(state => ({
